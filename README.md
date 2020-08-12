@@ -63,8 +63,8 @@ belongs_to :user
 ## items table
 | Column            | Type       | Options                        | 
 | ----------------- | ---------- | ------------------------------ | 
-| item_name         | string     | null: false                    | 
-| ]introduction     | text       | null: false                    | 
+| name              | string     | null: false                    | 
+| introduction      | text       | null: false                    | 
 | price             | integer    | null: false                    | 
 | item_condition    | integer    | null: false,foreign_key: true  | 
 | postage_payer     | integer    | null: false,foreign_key: true  | 
@@ -111,6 +111,7 @@ belongs_to :item
 belongs_to :sending_destinations
 
 
+
 ## buyer table
 | Column              | Type       | Options                        | 
 | --------------------| ---------- | ------------------------------ | 
@@ -121,3 +122,12 @@ belongs_to :sending_destinations
 belongs_to :user
 belongs_to :item
 
+
+## Sales management
+| Column              | Type       | Options                        | 
+| --------------------| ---------- | ------------------------------ | 
+| card-id             | integer    | null: false, foreign_key: true | 
+| Shopping_carts_id   | references | null: false, foreign_key: true | 
+
+### Association
+belongs_to :Shopping_carts_id
