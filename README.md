@@ -77,7 +77,7 @@ belongs_to :user
 
 ### Association
 has_many :comments, dependent: :destroy
-belongs_to :shopping_carts
+belongs_to :shopping_cart
 belongs_to_active_hash :category
 belongs_to_active_hash :item_condition
 belongs_to_active_hash :postage_payer
@@ -108,7 +108,7 @@ belongs_to :item
 ### Association
 belongs_to :user
 belongs_to :item
-belongs_to :sending_destinations
+belongs_to :sending_destination
 
 
 
@@ -130,4 +130,4 @@ belongs_to :item
 | Shopping_carts_id   | references | null: false, foreign_key: true | 
 
 ### Association
-belongs_to :Shopping_carts
+belongs_to :Shopping_cart
