@@ -66,16 +66,13 @@ belongs_to :user
 | item_name         | string     | null: false                    | 
 | ]introduction     | text       | null: false                    | 
 | price             | integer    | null: false                    | 
-| item_condition    | references | null: false,foreign_key: true  | 
-| postage_payer     | references | null: false,foreign_key: true  | 
+| item_condition    | integer    | null: false,foreign_key: true  | 
+| postage_payer     | integer    | null: false,foreign_key: true  | 
 | prefecture_code   | integer    | null: false                    | 
-| preparation_day   | references | null: false, foreign_key: true | 
-| postage_type      | references | null: false, foreign_key: true | 
-| image             | references | null: false, foreign_key: true | 
-| category          | references | null: false, foreign_key: true | 
-| trading_status    | string     | null: false                    | 
-| shopping_deadline | timestamp  |                                | 
-| images            | string     | null:false                     | 
+| preparation_day   | integer    | null: false, foreign_key: true | 
+| postage_type      | integer    | null: false, foreign_key: true | 
+| image             | string     | null: false, foreign_key: true | 
+| category          | integer    | null: false, foreign_key: true | 
 
 
 ### Association
