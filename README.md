@@ -41,7 +41,7 @@ Things you may want to cover:
 
 has_many :comments, dependent: :destroy
 has_many :items, dependent: :destroy
-has_one :sending_destination, dependent: :destroy
+has_many :sending_destination, dependent: :destroy
 
 
 
@@ -77,7 +77,7 @@ belongs_to :user
 
 ### Association
 has_many :comments, dependent: :destroy
-has_one :user_reviews
+belongs_to :shopping_carts
 belongs_to_active_hash :category
 belongs_to_active_hash :item_condition
 belongs_to_active_hash :postage_payer
@@ -130,4 +130,4 @@ belongs_to :item
 | Shopping_carts_id   | references | null: false, foreign_key: true | 
 
 ### Association
-belongs_to :Shopping_carts_id
+belongs_to :Shopping_carts
