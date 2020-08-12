@@ -42,7 +42,7 @@ Things you may want to cover:
 has_many :comments, dependent: :destroy
 has_many :items, dependent: :destroy
 has_many :sending_destination, dependent: :destroy
-
+has_one :shopping_cart
 
 
 ## sending_destinations table
@@ -54,30 +54,35 @@ has_many :sending_destination, dependent: :destroy
 | house_number                 | string     | null:false                     | 
 | building_name                | string     |                                | 
 | phone_number                 | string     | unique: true                   | 
-| user                         | references | null: false, foreign_key: true | 
+| shopping_cart                | references | null: false, foreign_key: true | 
 
 ### Association
 belongs_to :user
+belongs_to :shopping_cart
 
 
 ## items table
 | Column            | Type       | Options                        | 
 | ----------------- | ---------- | ------------------------------ | 
 | name              | string     | null: false                    | 
+| user              | references | null: false, foreign_key: true | 
 | introduction      | text       | null: false                    | 
 | price             | integer    | null: false                    | 
+| category          | integer    | null: false, foreign_key: true | 
 | item_condition    | integer    | null: false,foreign_key: true  | 
 | postage_payer     | integer    | null: false,foreign_key: true  | 
-| prefecture_code   | integer    | null: false                    | 
 | preparation_day   | integer    | null: false, foreign_key: true | 
 | postage_type      | integer    | null: false, foreign_key: true | 
 | image             | string     | null: false, foreign_key: true | 
-| category          | integer    | null: false, foreign_key: true | 
+| prefecture_code   | integer    | null: false                    | 
+
 
 
 ### Association
+belongs_to :user
+belongs_to :buyer
 has_many :comments, dependent: :destroy
-belongs_to :shopping_cart
+has_one :shopping_cart
 belongs_to_active_hash :category
 belongs_to_active_hash :item_condition
 belongs_to_active_hash :postage_payer
@@ -108,11 +113,11 @@ belongs_to :item
 ### Association
 belongs_to :user
 belongs_to :item
-belongs_to :sending_destination
+has_one :sending_destination
+has_one :sales_management
 
 
-
-## buyer table
+## Buyer table
 | Column              | Type       | Options                        | 
 | --------------------| ---------- | ------------------------------ | 
 | user                | references | null: false, foreign_key: true | 
