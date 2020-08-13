@@ -68,12 +68,12 @@ belongs_to :shopping_cart
 | user              | references | null: false, foreign_key: true | 
 | introduction      | text       | null: false                    | 
 | price             | integer    | null: false                    | 
-| category          | integer    | null: false, foreign_key: true | 
-| item_condition    | integer    | null: false,foreign_key: true  | 
-| postage_payer     | integer    | null: false,foreign_key: true  | 
-| preparation_day   | integer    | null: false, foreign_key: true | 
-| postage_type      | integer    | null: false, foreign_key: true | 
-| image             | string     | null: false, foreign_key: true | 
+| category          | integer    | null: false,                   | 
+| item_condition    | integer    | null: false,                   | 
+| postage_payer     | integer    | null: false,                   | 
+| preparation_day   | integer    | null: false,                   | 
+| postage_type      | integer    | null: false,                   | 
+| image             | string     | null: false,                   | 
 | prefecture_code   | integer    | null: false                    | 
 
 
@@ -114,25 +114,3 @@ belongs_to :item
 belongs_to :user
 belongs_to :item
 has_one :sending_destination
-has_one :sales_management
-
-
-## Buyer table
-| Column              | Type       | Options                        | 
-| --------------------| ---------- | ------------------------------ | 
-| user                | references | null: false, foreign_key: true | 
-| item                | references | null: false, foreign_key: true | 
-
-### Association
-belongs_to :user
-belongs_to :item
-
-
-## Sales management
-| Column              | Type       | Options                        | 
-| --------------------| ---------- | ------------------------------ | 
-| card-id             | integer    | null: false, foreign_key: true | 
-| Shopping_carts_id   | references | null: false, foreign_key: true | 
-
-### Association
-belongs_to :Shopping_cart
