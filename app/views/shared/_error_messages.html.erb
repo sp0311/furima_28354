@@ -1,11 +1,12 @@
-<%= form_with(model: product, local: true) do |form| %>
+<%# <% <%= form_with(model: product, local: true) do |form| %> 
 
-<% if model.errors.any? %>
-<div class="error-alert">
-  <ul>
-    <% model.errors.full_messages.each do |message| %>
-    <li class='error-message'><%= message %></li>
+ <% if model.errors.any? %>
+   <div class="error-alert">
+      <ul>
+      <% model.errors.full_messages.each do |message| %>
+     <li class='error-message'><%= message %></li>
     <% end %>
-  </ul>
-</div>
-<% end %>
+      </ul>
+   </div>
+ <% end %>
+<%# <% end %>
