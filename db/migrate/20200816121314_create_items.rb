@@ -7,12 +7,11 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.integer :price, null: false
       t.integer :category, null: false
       t.integer :item_condition, null: false
-      t.integer :pastage_payer, null: false
+      t.integer :postage_payer, null: false
       t.integer :preparation_day, null: false
-      t.integer :pastage_type, null: false
+      t.integer :postage_type, null: false
       t.string :image, null: false
       t.integer :prefecture_code, null: false
     end
   end
-end
- 
+end 
