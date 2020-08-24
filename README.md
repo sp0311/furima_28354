@@ -66,26 +66,27 @@ belongs_to :shopping_cart
 | user              | references | null: false, foreign_key: true | 
 | introduction      | text       | null: false                    | 
 | price             | integer    | null: false                    | 
-| category          | integer    | null: false,                   | 
-| item_condition    | integer    | null: false,                   | 
-| postage_payer     | integer    | null: false,                   | 
-| preparation_day   | integer    | null: false,                   | 
-| postage_type      | integer    | null: false,                   | 
+| category_id       | integer    | null: false,                   | 
+| item_condition_id | integer    | null: false,                   | 
+| postage_payer_id  | integer    | null: false,                   | 
+| preparation_day_id| integer    | null: false,                   | 
 | image             | string     | null: false,                   | 
-| prefecture_code   | integer    | null: false                    | 
+| prefecture_code_id| integer    | null: false                    | 
 
+<!-- | postage_type_id   | integer    | null: false,                   |  -->
 
 
 ### Association
 belongs_to :user
 has_many :comments, dependent: :destroy
 has_one :shopping_cart
-belongs_to_active_hash :category
+belongs_to_active_hash :category_id
 belongs_to_active_hash :item_condition
 belongs_to_active_hash :postage_payer
 belongs_to_active_hash :preparation_day
 belongs_to_active_hash :postage_type
-Gem：jp_prefecture
+belongs_to_active_hash :prefecture_code
+<!-- Gem：jp_prefecture -->
 
 
 ## Comments table

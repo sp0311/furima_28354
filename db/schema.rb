@@ -17,13 +17,12 @@ ActiveRecord::Schema.define(version: 2020_08_16_121314) do
     t.bigint "user_id", null: false
     t.text "introduction", null: false
     t.integer "price", null: false
-    t.integer "category", null: false
-    t.integer "item_condition", null: false
-    t.integer "postage_payer", null: false
-    t.integer "preparation_day", null: false
-    t.integer "postage_type", null: false
+    t.integer "category_id", null: false
+    t.integer "item_condition_id", null: false
+    t.integer "postage_payer_id", null: false
+    t.integer "preparation_day_id", null: false
     t.string "image", null: false
-    t.integer "prefecture_code", null: false
+    t.integer "prefecture_code_id", null: false
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
@@ -45,4 +44,5 @@ ActiveRecord::Schema.define(version: 2020_08_16_121314) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "items", "users"
 end

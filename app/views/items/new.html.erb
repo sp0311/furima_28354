@@ -1,15 +1,16 @@
 <div class="items-sell-contents">
   <header class="items-sell-header">
     <%= link_to image_tag('furima-logo-color.png' , size: '185x50'), "/" %>
-
+    <script src="price.js"></script>
   </header>
+  
   <div class="items-sell-main">
     <h2 class="items-sell-title">商品の情報を入力</h2>
     <%# <%# <%= form_with local: true do |f| %これを下記に変更>  %>
-    <%= form_with(model: @item, local: true) do |f| %>
+    <%= form_with(model: @item, url: items_path, local: true) do |f| %>
 
     <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
-    <%# render 'shared/error_messages', model: f.object %>
+    <%= render 'shared/error_messages', model: f.object %>
     <%# //インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
 
     <%# 出品画像 %>
@@ -38,7 +39,7 @@
           商品の説明
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_area :introfuction, class:"items-text", id:"item-info", placeholder:"商品の説明（必須 1,000文字まで）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。" ,rows:"7" ,maxlength:"1000" %>
+        <%= f.text_area :introduction, class:"items-text", id:"item-info", placeholder:"商品の説明（必須 1,000文字まで）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。" ,rows:"7" ,maxlength:"1000" %>
       </div>
     </div>
     <%# /商品名と商品説明 %>
@@ -56,7 +57,7 @@
           商品の状態
           <span class="indispensable">必須</span>
         </div>
-      　<%= f.collection_select(:item_condition_id, ItemCondition.all, :id, :name, {class:"select-box", id:"item_condition"}) %>
+   <%= f.collection_select(:item_condition_id, ItemCondition.all, :id, :name, {class:"select-box", id:"item_condition"}) %>
       </div>
     </div>
     <%# /商品の詳細 %>
@@ -94,7 +95,7 @@
         <a class="question" href="#">?</a>
       </div>
       <div>
-        <div class="price-content">
+        <div class="price-content" >
           <div class="price-text">
             <span>価格</span>
             <span class="indispensable">必須</span>
