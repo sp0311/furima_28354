@@ -7,10 +7,17 @@ RSpec.describe Item, type: :model do
   end
 
   describe '商品の情報を入力' do
-    it 'imageが空だと保存できない' do
-      @item.image = nil
-      @item.valid?
-      expect(@item.errors.full_messages).to include("Image can't be blank")
+    context '情報入力がうまくいくとき' do
+      it "必須項目が全て存在すれば登録できる" do
+      expect(@item).to be_valid
+      end
+    end
+
+    context '情報入力がうまくいかないとき' do
+       it 'imageが空だと保存できない' do
+         @item.image = nil
+          @item.valid?
+        expect(@item.errors.full_messages).to include("Image can't be blank")
     end
 
     it 'nameが空だと保存できない' do
@@ -59,26 +66,23 @@ RSpec.describe Item, type: :model do
       @item.price = nil
       @item.valid?
       expect(@item.errors.full_messages).to include("Price is not included in the list")
+    end
+    it 'priceが¥9,999,999以上だと登録できない' do
+      @item.price += 9999999
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Price is not included in the list")
+    end
 
-      # it 'priceの範囲が、¥300~¥9,999,999の間でないと保存できない' do
-    #   @item.price= 
-    #   @item.valid?
-    #   expect(@item.errors.full_messages).to include("price  can't be blank")
-    # end
+      it 'priceが、¥300以下だと保存できない' do
+      @item.price -=1 
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Price is not included in the list")
+    end
 
-    # @user.password = "1234a"
-    # @user.valid?
-    # expect(@user.errors.full_messages).to include("Password is too short (minimum is 6 characters)")
-
-
-    # it '紐づくユーザーが存在しないと保存できないこと' do
-    #   @item.item = nil
-    #   @item.valid?
-    #   expect(@item.errors.full_messages).to include("User must exist")
-    # end
-   
-
-
+    it 'priceが、¥9.999,999以上だと保存できない' do
+      @item.price +=9999700
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Price is not included in the list")
     end
   end
 end
