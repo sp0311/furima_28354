@@ -28,7 +28,6 @@ class Item < ApplicationRecord
 
   belongs_to :user, optional: true
   has_many :comments, dependent: :destroy
-  # has_one :shopping_cart
   belongs_to_active_hash :category
   belongs_to_active_hash :item_condition
   belongs_to_active_hash :postage_payer
