@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  # before_action :configure_sign_up_params, only: [:create]
+  before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
@@ -15,7 +15,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     @user = User.new(sign_up_params)
-    # binding.pry
     render :new and return unless @user.valid?
 
     session['devise.regist_data'] = { user: @user.attributes }
@@ -32,9 +31,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 end
 
 # GET /resource/edit
-# def edit
-#   super
-# end
+def edit
+end
 
 # PUT /resource
 # def update
