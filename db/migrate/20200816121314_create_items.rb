@@ -9,7 +9,6 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.integer :item_condition_id, null: false
       t.integer :postage_payer_id, null: false
       t.integer :preparation_day_id, null: false
-      t.string :image, null: false
       t.integer :prefecture_code_id, null: false
     end
   end

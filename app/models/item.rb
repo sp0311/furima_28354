@@ -26,11 +26,13 @@ class Item < ApplicationRecord
   validates :category_id, :item_condition_id, :postage_payer_id, :preparation_day_id, :prefecture_code_id,
             numericality: { other_than: 1 }
 
+  has_one_attached :image
   belongs_to :user, optional: true
-  has_many :comments, dependent: :destroy
-  belongs_to_active_hash :category
-  belongs_to_active_hash :item_condition
-  belongs_to_active_hash :postage_payer
-  belongs_to_active_hash :preparation_day
-  belongs_to_active_hash :prefecture_code
+  # foreign_key: :user_id, dependent: :destroy
+  # has_many :comments, dependent: :destroy
+  belongs_to_active_hash :category, dependent: :destroy
+  belongs_to_active_hash :item_condition, dependent: :destroy
+  belongs_to_active_hash :postage_payer, dependent: :destroy
+  belongs_to_active_hash :preparation_day, dependent: :destroy
+  belongs_to_active_hash :prefecture_code, dependent: :destroy
 end
