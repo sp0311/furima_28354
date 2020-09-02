@@ -10,6 +10,8 @@ class ItemsController < ApplicationController
     @item = Item.new
   end
 
+  def
+
   def create
     @item = Item.new(item_params)
     if @item.save

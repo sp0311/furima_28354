@@ -13,7 +13,7 @@ class Item < ApplicationRecord
     validates :introduction, length: { maximum: 1000 }
   end
 
-  with_options numericality: { other_than: 0 } do
+  with_options numericality: { other_than: 1 } do
     validates :category_id
     validates :item_condition_id
     validates :postage_payer_id

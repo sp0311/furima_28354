@@ -1,16 +1,16 @@
 class ShoppingCartsController < ApplicationController
   def index
     @item = Item.find(params[:item_id])
-    if current_user.id == @item.user.id
-      redirect_to root_path
+    if    @item.shopping_cart.present?
+          redirect_to root_path
+    elsif current_user.id == @item.user.id
+          redirect_to root_path
     else
-      @shopping_cart = UserShoppingCart.new
-   end
+          @shopping_cart = UserShoppingCart.new
+     end
   end
 
-  # def new
-  #   @shopping_cart = UserShoppingCart.new
-  # end
+  def
 
   def create
     @shopping_cart = UserShoppingCart.new(shopping_cart_params)
