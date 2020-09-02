@@ -10,7 +10,6 @@ class ShoppingCartsController < ApplicationController
      end
   end
 
-  def
 
   def create
     @shopping_cart = UserShoppingCart.new(shopping_cart_params)
