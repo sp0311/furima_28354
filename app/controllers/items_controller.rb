@@ -1,8 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :new, :show]
-  before_action :set_item, except:[:index, :new, :create]
- 
-  
+  before_action :set_item, except: [:index, :new, :create]
+
   def index
     @items = Item.all
   end
@@ -20,7 +19,7 @@ class ItemsController < ApplicationController
     end
   end
 
-  def edit 
+  def edit
   end
 
   def update

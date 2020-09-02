@@ -1,0 +1,11 @@
+<% if shopping_cart.errors.any? %>
+ <div class="error-alert">
+   <ul>
+     <% shopping_cart.errors.full_messages.each do |message| %>
+       <li class="error-message">
+         <%= message %>
+       </li>
+     <% end %>
+   </ul>
+ </div>
+<% end %>

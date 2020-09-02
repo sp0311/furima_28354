@@ -23,9 +23,9 @@ class User < ApplicationRecord
     validates_format_of :password, presence: true, confirmation: true, length: { minimum: 6 }, with: PASSWORD_REGEX
     validates :password_confirmation
     validates :birth_day
-
-    # has_many :comments, dependent: :destroy
-    #  has_many :items, dependent: :destroy
-    # has_one :shopping_cart
   end
+
+  # has_many :comments, dependent: :destroy
+  has_many :items
+  has_one :shopping_cart
 end
